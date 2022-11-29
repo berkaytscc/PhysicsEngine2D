@@ -14,4 +14,62 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Physics\Vector2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Application.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Physics\Vector2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
+    <None Include="LICENSE" />
+    <None Include="README.md" />
+    <None Include="SDL2.dll" />
+    <None Include="SDL2_image.dll" />
+    <None Include="x64\Debug\Physics2D.pdb" />
+    <None Include="x64\Debug\vc143.idb" />
+    <None Include="x64\Debug\vc143.pdb" />
+    <None Include="x64\Debug\Physics2D.tlog\CL.command.1.tlog" />
+    <None Include="x64\Debug\Physics2D.tlog\CL.read.1.tlog" />
+    <None Include="x64\Debug\Physics2D.tlog\CL.write.1.tlog" />
+    <None Include="x64\Debug\Physics2D.tlog\link.command.1.tlog" />
+    <None Include="x64\Debug\Physics2D.tlog\link.read.1.tlog" />
+    <None Include="x64\Debug\Physics2D.tlog\link.read.2.tlog" />
+    <None Include="x64\Debug\Physics2D.tlog\link.write.1.tlog" />
+    <None Include="x64\Debug\Physics2D.tlog\link-cvtres.read.1.tlog" />
+    <None Include="x64\Debug\Physics2D.tlog\link-cvtres.write.1.tlog" />
+    <None Include="x64\Debug\Physics2D.tlog\link-rc.read.1.tlog" />
+    <None Include="x64\Debug\Physics2D.tlog\link-rc.write.1.tlog" />
+    <None Include="x64\Debug\Physics2D.tlog\Physics2D.lastbuildstate" />
+    <None Include="x64\Debug\Physics2D.tlog\unsuccessfulbuild" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="x64\Debug\Vector2D.obj" />
+    <Object Include="x64\Debug\Application.obj" />
+    <Object Include="x64\Debug\Graphics.obj" />
+    <Object Include="x64\Debug\Main.obj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="x64\Debug\Physics2D.log" />
+  </ItemGroup>
 </Project>
