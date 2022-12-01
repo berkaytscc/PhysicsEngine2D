@@ -62,6 +62,7 @@
     <None Include="x64\Debug\Physics2D.tlog\link-rc.write.1.tlog" />
     <None Include="x64\Debug\Physics2D.tlog\Physics2D.lastbuildstate" />
     <None Include="x64\Debug\Physics2D.tlog\unsuccessfulbuild" />
+    <None Include="Makefile" />
   </ItemGroup>
   <ItemGroup>
     <Object Include="x64\Debug\Vector2D.obj" />

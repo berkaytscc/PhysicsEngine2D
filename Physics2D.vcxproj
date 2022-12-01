@@ -121,7 +121,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
     </Link>
@@ -157,6 +157,7 @@
     <None Include=".gitattributes" />
     <None Include=".gitignore" />
     <None Include="LICENSE" />
+    <None Include="Makefile" />
     <None Include="README.md" />
     <None Include="SDL2.dll" />
     <None Include="SDL2_image.dll" />

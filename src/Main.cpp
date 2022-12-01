@@ -1,6 +1,19 @@
-#include <iostream>
+#include "Application.h"
 
-int main()
+int main(int argc, char* args[])
 {
-	std::cout << "test" << std::endl;
+	Application app;
+	
+	app.Setup();
+
+	while (app.isRunning())
+	{
+		app.Input();
+		app.Update();
+		app.Render();
+	}
+
+	app.Destroy();
+
+	return 0;
 }
