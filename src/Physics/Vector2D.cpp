@@ -1,11 +1,13 @@
 #include "Vector2D.h"
 #include <cmath>
+#include <string>
+#include <sstream>
 
-#define PI          3.141592653589793238462643383279502884L	// pi
+#define PI				3.141592653589793238462643383279502884L	// pi
 
-//Vector2D::Vector2D(): x(0.0f), y(0.0f) {}						// default constructure that initializes new Vector2D(0,0)
+Vector2D::Vector2D(): x(0.0f), y(0.0f) {}						// default constructure that initializes new Vector2D(0,0)
 
-Vector2D::Vector2D(float x = 0, float y = 0): x(x), y(y) {}		// actual constructure that can be passed paramaters --> new Vector2D(x,y)
+Vector2D::Vector2D(float x, float y): x(x), y(y) {}				// actual constructure that can be passed paramaters --> new Vector2D(x,y)
 
 void Vector2D::Add(Vector2D v) {
 	this->x += v.x;
@@ -29,7 +31,7 @@ void Vector2D::Set(float newX, float newY)
 }
 
 Vector2D Vector2D::Rotate(float angle) {
-	Vector2D _rotatedVector; 
+	Vector2D _rotatedVector;
 	_rotatedVector.x = x * cosf(angle) - y * sinf(angle);
 	_rotatedVector.y = x * sinf(angle) + y * cosf(angle);
 	return _rotatedVector;
@@ -41,8 +43,10 @@ float Vector2D::Magnitude() {
 
 float Vector2D::SqrMagnitude()
 {
+	Vector2D newVector2;
 	return this->x * this->x + this->y * this->y;
 }
+
 
 float Vector2D::Angle(Vector2D v, Vector2D v2)
 {
@@ -92,4 +96,82 @@ Vector2D Vector2D::normalized()
 
 Vector2D Vector2D::UnitVector() {
 	//TODO: Write unit vector code
+	return Vector2D();
 }
+
+bool Vector2D::operator==(Vector2D v) {
+	return this->x == v.x && this->y == v.y;
+}
+
+bool Vector2D::operator!=(Vector2D v) {
+	return !(*this == v);
+}
+
+Vector2D Vector2D::operator+(Vector2D v) {
+	Vector2D result;
+	result.x = this->x + v.x;
+	result.y = this->y + v.y;
+	return result;
+}
+
+Vector2D Vector2D::operator-(Vector2D v) {
+	Vector2D result;
+	result.x = this->x - v.x;
+	result.y = this->y - v.y;
+	return result;
+}
+
+Vector2D Vector2D::operator*(float n) {
+	Vector2D result;
+	result.x = this->x * n;
+	result.y = this->y * n;
+	return result;
+}
+
+Vector2D Vector2D::operator/(float n) {
+	Vector2D result;
+	result.x = this->x / n;
+	result.y = this->y / n;
+	return result;
+}
+
+Vector2D Vector2D::operator+=(Vector2D v) {
+	this->x += v.x;
+	this->y += v.y;
+	return *this;
+}
+
+Vector2D Vector2D::operator-=(Vector2D v) {
+	this->x -= v.x;
+	this->y -= v.y;
+	return *this;
+}
+
+Vector2D Vector2D::operator*=(float n) {
+	this->x *= n;
+	this->y *= n;
+	return *this;
+}
+
+Vector2D Vector2D::operator/=(float n) {
+	this->x /= n;
+	this->y /= n;
+	return *this;
+}
+
+Vector2D Vector2D::operator-() {
+	this->x *= -1;
+	this->y *= -1;
+	return *this;
+}
+
+std::string Vector2D::ToString() {
+	//TODO: decimal points are too long --> find a way good way to format strings in c++
+	std::string _x = std::to_string(this->x);
+	std::string _y = std::to_string(this->y);
+	std::ostringstream oss;
+	oss << "(" << _x << ", " << _y << ")";
+	std::string _result = oss.str();
+	return _result;
+}
+
