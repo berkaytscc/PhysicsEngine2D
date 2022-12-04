@@ -27,13 +27,22 @@ struct Vector2D {
 	void Add(Vector2D v);								// v1.add(v2);
 	void Sub(Vector2D v);								// v1.Sub(v2);
 	void Scale(float n);								// v1.Scale(x);
+	void Set(float newX, float newY);					// v1.Set(newX, newY);
 	Vector2D Rotate(float angle);						// v1.Rotate(angle);
 
 	float Magnitude();  								// v1.Magnitude();
-
+	float SqrMagnitude();  								// v1.sqrMagnitude();
+	/// <summary>
+	/// Returns the angle between two vectors in degree
+	/// </summary>
+	/// <param name="v"> --> first vector</param>
+	/// <param name="v2"> --> second vector</param>
+	/// <returns></returns>
+	static float Angle(Vector2D v, Vector2D v2);		// Vector2D.Angle(v,v2);
+	
 	float Dot(Vector2D v);								// v1.Dot(v2);
 	float Cross(Vector2D v);							// v1.Cross(v2);
-
+	
 	/// <summary>
 	/// When a vector is normalized, direction is not changed but its length is 1.0.
 	/// Notice that this function will alter the current vector. 
@@ -45,5 +54,7 @@ struct Vector2D {
 	Vector2D normalized();								// v1.normalized();
 	Vector2D UnitVector();								// v1.UnitVector();
 	Vector2D Perpendicular();							// v1.Perpendicular();
+
+	bool isEqual(Vector2D v);							// v1.isEqual(v);							
 };
 #endif
