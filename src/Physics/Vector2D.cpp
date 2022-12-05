@@ -2,6 +2,7 @@
 #include <cmath>
 #include <string>
 #include <sstream>
+#include <iostream>
 
 #define PI				3.141592653589793238462643383279502884L	// pi
 
@@ -129,6 +130,20 @@ Vector2D Vector2D::operator*(float n) {
 }
 
 Vector2D Vector2D::operator/(float n) {
+	//FIXME: Right now we only print an error message to the screen but this is not what we want to deal with errors.
+	//		 Need an improvement that an exception should be thrown at run time (not a message printed on the screen)
+	try
+	{
+		if (n==0)
+		{
+			throw 0;
+		}
+	}
+	catch (int x)
+	{
+		std::cout << "ERROR! - denominator can not be equal to zero" << "\n";
+		return *this;
+	}
 	Vector2D result;
 	result.x = this->x / n;
 	result.y = this->y / n;
