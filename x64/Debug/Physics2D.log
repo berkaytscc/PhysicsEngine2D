@@ -1,0 +1,7 @@
+﻿  Vector2D.cpp
+C:\Users\berka\Desktop\engine\Physics2D\src\Physics\Vector2D.cpp(54,22): warning C4244: 'return': conversion from 'long double' to 'float', possible loss of data
+x64\Debug\Application.obj : warning LNK4042: object specified more than once; extras ignored
+x64\Debug\Graphics.obj : warning LNK4042: object specified more than once; extras ignored
+x64\Debug\Main.obj : warning LNK4042: object specified more than once; extras ignored
+x64\Debug\Vector2D.obj : warning LNK4042: object specified more than once; extras ignored
+  Physics2D.vcxproj -> C:\Users\berka\Desktop\engine\Physics2D\x64\Debug\Physics2D.lib
