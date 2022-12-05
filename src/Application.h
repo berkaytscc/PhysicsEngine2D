@@ -4,6 +4,7 @@
 class Application
 {
 private: 
+	bool debug = false; // Unclear, learn how to use it
 	bool running = false;
 
 public:

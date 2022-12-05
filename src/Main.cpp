@@ -1,4 +1,5 @@
 #include "Application.h"
+#include "Graphics.h"
 
 int main(int argc, char* args[])
 {
