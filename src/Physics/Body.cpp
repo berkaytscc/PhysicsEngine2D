@@ -1,7 +1,7 @@
 #include "Body.h"
 #include <iostream>
 
-Body::Body(Shape &shape, float x, float y, float mass)
+Body::Body(const Shape &shape, float x, float y, float mass)
 {
 	this->shape = shape.Clone();
 	this->position = Vector2D(x, y);
@@ -35,10 +35,8 @@ Body::Body(Shape &shape, float x, float y, float mass)
 
 Body::~Body()
 {
-
 	SDL_DestroyTexture(this->texture);
 	std::cout << "Body destructor" << "\n";
-	
 }
 
 bool Body::isStatic() const

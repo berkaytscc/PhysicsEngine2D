@@ -30,11 +30,12 @@ struct Body
 	float restitution;					// TODO: figure out
 	float friction;
 
-	Shape shape;
+	Shape* shape = nullptr;
 
 	SDL_Texture* texture = nullptr;
 
-	Body(Shape &shape, float x, float y, float mass);
+	
+	Body(const Shape& shape, float x, float y, float mass);
 	~Body();
 
 	bool isStatic() const;

@@ -1,6 +1,4 @@
 #include "Application.h"
-#include "Graphics.h"
-#include "Physics/Constants.h"
 
 bool Application::isRunning() {
 	return running;
@@ -8,6 +6,24 @@ bool Application::isRunning() {
 
 void Application::Setup() {
 	running = Graphics::OpenWindow();
+
+	// create world
+	world = new World(-9.8f);
+	
+	BoxShape boxShape = BoxShape(140, 140);
+	Vector2D v = Vector2D(200, 200);
+	Vector2D v2 = Vector2D(200, 400);
+	Vector2D v3 = Vector2D(100, 400);
+	Vector2D v4 = Vector2D(200, 200);
+	
+	Body* box = new Body(boxShape, Graphics::Width() / 2.0, Graphics::Height() / 2.0, 0.0);
+	
+	box->shape->worldVertices.push_back(v);
+	box->shape->worldVertices.push_back(v2);
+	box->shape->worldVertices.push_back(v3);
+	box->shape->worldVertices.push_back(v4);
+
+	world->AddBody(box);
 }
 
 void Application::Input() {
@@ -44,8 +60,15 @@ void Application::Update() {
 		SDL_Delay(timeToWait);
 }
 void Application::Render() {
-	Graphics::RenderFrame();
 	//TODO: Render function is called several times per second to draw objects
+	for (auto body: world->GetBodies())
+	{
+		if (body->shape->GetType() == BOX)
+		{
+			Graphics::DrawPolygon(500, 500, body->shape->worldVertices);
+		}
+	}
+	Graphics::RenderFrame();
 }
 /// <summary>
 /// Call this method to delete objects in the scene

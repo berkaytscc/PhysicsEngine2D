@@ -3,7 +3,8 @@
 
 
 #include <SDL.h>
-
+#include "Physics/Vector2D.h"
+#include <vector>
 
 
 struct Graphics
@@ -23,6 +24,7 @@ public:
 	static int Width();
 	static int Height();
 
+	static void DrawPolygon(int x, int y, std::vector<Vector2D> vertices); // SDL_Color color
 };
 
 

@@ -13,11 +13,14 @@ enum ShapeType
 
 struct Shape
 {
-	~Shape() = default;
-	ShapeType GetType();		// = 0 means 'pure virtual' function --> GetType() needs to be defined in every shape object individually
-	Shape Clone() const;			
-	void UpdateVertices(float angle, const Vector2D position);
-	float GetMomentOfInertia() const;
+	virtual ~Shape() = default;
+	virtual ShapeType GetType() const = 0;
+	virtual Shape* Clone() const = 0;
+	virtual void UpdateVertices(float angle, const Vector2D position) = 0;
+	virtual float GetMomentOfInertia() const = 0;
+
+	std::vector<Vector2D> localVertices; // temp
+	std::vector<Vector2D> worldVertices;
 };
 
 struct CircleShape: public Shape
@@ -25,23 +28,22 @@ struct CircleShape: public Shape
 	float radius;
 
 	CircleShape(const float radius);
-	~CircleShape();
+	virtual ~CircleShape();
 	ShapeType GetType() const;
-	Shape Clone() const;
+	Shape* Clone() const;
 	void UpdateVertices(float angle, const Vector2D position);
 	float GetMomentOfInertia() const;
 };
 
 struct PolygonShape: public Shape
 {
-	std::vector<Vector2D> localVertices;
-	std::vector<Vector2D> worldVertices;
+	// vertices should be here
 
 	PolygonShape() = default;
 	PolygonShape(const std::vector<Vector2D> vertices);
-	~PolygonShape();
+	virtual ~PolygonShape();
 	ShapeType GetType() const;
-	Shape Clone() const;
+	Shape* Clone() const;
 	void UpdateVertices(float angle, const Vector2D position);
 	float GetMomentOfInertia() const;
 
@@ -53,10 +55,11 @@ struct BoxShape: public PolygonShape
 	float width;
 	float height;
 
+
 	BoxShape(float width, float height);
-	~BoxShape();
+	virtual ~BoxShape();
 	ShapeType GetType() const;
-	Shape Clone() const;
+	Shape* Clone() const;
 	float GetMomentOfInertia() const;
 };
 

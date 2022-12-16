@@ -8,7 +8,7 @@
 
 Vector2D::Vector2D(): x(0.0f), y(0.0f) {}						// default constructure that initializes new Vector2D(0,0)
 
-Vector2D::Vector2D(float x, float y): x(x), y(y) {}				// actual constructure that can be passed paramaters --> new Vector2D(x,y)
+Vector2D::Vector2D(float x, float y): x(x), y(y) {}			// actual constructure that can be passed paramaters --> new Vector2D(x,y)
 
 void Vector2D::Add(Vector2D v) {
 	this->x += v.x;

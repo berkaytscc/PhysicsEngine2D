@@ -16,8 +16,8 @@ ShapeType CircleShape::GetType() const {
 	return CIRCLE;
 }
 
-Shape CircleShape::Clone() const {
-	return CircleShape(radius);
+Shape* CircleShape::Clone() const {
+	return new CircleShape(radius);
 }
 
 void CircleShape::UpdateVertices(float angle, const Vector2D position) {
@@ -43,10 +43,10 @@ ShapeType PolygonShape::GetType() const
 {
 	return POLYGON;
 }
-Shape PolygonShape::Clone() const
+Shape* PolygonShape::Clone() const
 {
 	//TODO: return PolygonShape(localVertices)
-	return PolygonShape();
+	return new PolygonShape();
 }
 void PolygonShape::UpdateVertices(float angle, const Vector2D position)
 {
@@ -76,6 +76,11 @@ BoxShape::~BoxShape()
 ShapeType BoxShape::GetType() const
 {
 	return BOX;
+}
+
+Shape* BoxShape::Clone() const
+{
+	return new BoxShape(width,height);
 }
 
 float BoxShape::GetMomentOfInertia() const
