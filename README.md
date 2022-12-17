@@ -7,10 +7,12 @@
 
 Simple 2D physics engine using C++ / SDL. 
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
-<br />
+###TODO
+- Proceed to work with rigid bodies by adding shapes to our objects, like circles, boxes, and polygons.
+- The collision detection and collision resolution between these rigid bodies.
+- Add constraints to the physics engine, like joints and ragdolls. Constraints will help us improve the stability.
+- Write a simulation of particle physics.
+- Write a simulation of 2D environment.
 
 <!-- Dev logs :) -->
 ### Dev logs :)
