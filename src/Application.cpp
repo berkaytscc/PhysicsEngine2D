@@ -9,20 +9,28 @@ void Application::Setup() {
 
 	// create world
 	world = new World(-9.8f);
-	
-	BoxShape boxShape = BoxShape(140, 140);
-	Vector2D v = Vector2D(200, 200);
-	Vector2D v2 = Vector2D(200, 400);
-	Vector2D v3 = Vector2D(100, 400);
-	Vector2D v4 = Vector2D(200, 200);
-	
-	Body* box = new Body(boxShape, Graphics::Width() / 2.0, Graphics::Height() / 2.0, 0.0);
-	
-	box->shape->worldVertices.push_back(v);
-	box->shape->worldVertices.push_back(v2);
-	box->shape->worldVertices.push_back(v3);
-	box->shape->worldVertices.push_back(v4);
 
+	Vector2D v0 = Vector2D(100, 100);
+	Vector2D v1 = Vector2D(300, 100);
+	Vector2D v2 = Vector2D(250, 250);
+	Vector2D v3 = Vector2D(100, 250);
+
+	PolygonShape polygonShape = PolygonShape();
+
+	Body* polygon = new Body(polygonShape, 0.0f, 0.0f, 0.0f);
+	
+	polygon->shape->worldVertices.push_back(v0);
+	polygon->shape->worldVertices.push_back(v1);
+	polygon->shape->worldVertices.push_back(v2);
+	polygon->shape->worldVertices.push_back(v3);
+
+	world->AddBody(polygon); //why box is rendering but polygon not?
+
+
+
+
+	BoxShape boxShape = BoxShape(100, 100);
+	Body* box = new Body(boxShape, 0.0f, 0.0f, 0.0f);
 	world->AddBody(box);
 }
 
@@ -38,7 +46,7 @@ void Application::Input() {
 			break;
 
 		case SDL_KEYDOWN:
-			if (event.key.keysym.sym == SDLK_ESCAPE)
+			if (event.key.keysym.sym == SDLK_ESCAPE) // Close the app when clicked esc
 				running = false;
 			if (event.key.keysym.sym == SDLK_d)
 				debug = !debug;
@@ -65,7 +73,14 @@ void Application::Render() {
 	{
 		if (body->shape->GetType() == BOX)
 		{
-			Graphics::DrawPolygon(500, 500, body->shape->worldVertices);
+			Graphics::DrawBox(body, 100, 300);
+		}
+
+		if (body->shape->GetType() == POLYGON) {
+			Graphics::DrawPolygon(body->shape->worldVertices);
+		}
+		if (body->shape->GetType() == CIRCLE) {
+			//DrawCircle
 		}
 	}
 	Graphics::RenderFrame();

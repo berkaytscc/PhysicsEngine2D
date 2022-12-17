@@ -5,6 +5,7 @@
 #include <SDL.h>
 #include "Physics/Vector2D.h"
 #include <vector>
+#include "Physics/Body.h"
 
 
 struct Graphics
@@ -24,7 +25,9 @@ public:
 	static int Width();
 	static int Height();
 
-	static void DrawPolygon(int x, int y, std::vector<Vector2D> vertices); // SDL_Color color
+	static void DrawCircle(int x, int y, int radius, float angle, Uint32 color);
+	static void DrawPolygon(std::vector<Vector2D> vertices); // SDL_Color color
+	static void DrawBox(Body* body, int x, int y);
 };
 
 

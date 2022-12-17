@@ -64,7 +64,12 @@ int Graphics::Height()
 	return windowHeight;
 }
 
-void Graphics::DrawPolygon(int x, int y, std::vector<Vector2D> vertices)
+void Graphics::DrawCircle(int x, int y, int radius, float angle, Uint32 color)
+{
+	SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+}
+
+void Graphics::DrawPolygon(std::vector<Vector2D> vertices)
 {
 	//TODO: SDL_Color paramater will be added
 
@@ -78,4 +83,21 @@ void Graphics::DrawPolygon(int x, int y, std::vector<Vector2D> vertices)
 		SDL_RenderDrawLine(renderer, (int)vertices[currentIndex].x, (int)vertices[currentIndex].y,
 										(int)vertices[nextIndex].x, (int)vertices[nextIndex].y);
 	}
+}
+
+void Graphics::DrawBox(Body* body, int x, int y)
+{
+
+	SDL_SetRenderDrawColor(renderer, 56, 152, 122, 255);
+
+	SDL_Rect rect;
+
+	BoxShape* box = (BoxShape*)body->shape;
+
+	rect.x = x;
+	rect.y = y;
+	rect.w = box->width;
+	rect.h = box->height;
+
+	SDL_RenderDrawRect(renderer, &rect);
 }

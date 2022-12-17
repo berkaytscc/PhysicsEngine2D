@@ -32,7 +32,7 @@ float CircleShape::GetMomentOfInertia() const {
 
 #pragma region Polygon
 PolygonShape::PolygonShape(const std::vector<Vector2D> vertices) {
-	//TODO: will be added later
+	//TODO: will be added later && Berkay buraya bi refactor
 	std::cout << "PolygonShape constructor" << "\n";
 }
 

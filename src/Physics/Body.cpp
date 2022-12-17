@@ -42,7 +42,7 @@ Body::~Body()
 bool Body::isStatic() const
 {
 	const float epsilon = 0.005f;
-	return fabs(this->invMass - 0.0f) < epsilon; // minus zero 
+	return fabs(this->invMass - 0.0f) < epsilon;
 }
 
 

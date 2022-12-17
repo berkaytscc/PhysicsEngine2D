@@ -1,4 +1,4 @@
-#include "World.h"
+﻿#include "World.h"
 
 World::World(float gravity)
 {
@@ -11,7 +11,7 @@ World::~World()
 	for (Body* body : this->bodies) {
 		delete body;
 	}
-	//TODO: delete constraints later
+	//TODO: delete constraints later & Berkayım?
 
 	std::cout << "World destructor" << "\n";
 }

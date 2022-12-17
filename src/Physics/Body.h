@@ -20,7 +20,7 @@ struct Body
 	float angularAcceleration;
 
 	Vector2D sumForces;					
-	float sumTorque;
+	float sumTorque;  // Are we sure that we're not going to use Vector?
 
 	float mass;
 	float invMass;

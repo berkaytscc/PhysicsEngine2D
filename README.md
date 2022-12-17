@@ -8,6 +8,7 @@
 Simple 2D physics engine using C++ / SDL. 
 
 ### TODO
+- Refactor the tunams code
 - Proceed to work with rigid bodies by adding shapes to our objects, like circles, boxes, and polygons.
 - The collision detection and collision resolution between these rigid bodies.
 - Add constraints to the physics engine, like joints and ragdolls. Constraints will help us improve the stability.
