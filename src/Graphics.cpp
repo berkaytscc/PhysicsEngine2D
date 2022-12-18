@@ -64,9 +64,30 @@ int Graphics::Height()
 	return windowHeight;
 }
 
-void Graphics::DrawCircle(int x, int y, int radius, float angle, Uint32 color)
+void Graphics::DrawCircle(int x, int y, int radius)
 {
-	SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+	int x_temp = 0;
+	int y_temp = 0;
+	int x_0, y_0;
+	// lineColor(renderer, x, y, x + cos(angle) * radius, y + sin(angle) * radius, color);
+	for (int i = 0; i < 36; i++) {
+		float radians = i * M_PI / 18;
+
+		x_0 = x + radius * cos(radians);
+		y_0 = y + radius * sin(radians);
+		
+		if (i == 0) { SDL_RenderDrawPoint(renderer, x_0, y_0); }
+		else {
+			SDL_RenderDrawLine(renderer, x_temp, y_temp, x_0, y_0);
+		}
+
+		x_temp = x_0;
+		y_temp = y_0;
+		SDL_RenderDrawPoint(renderer, x_0, y_0);
+		SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+	}
+
+
 }
 
 void Graphics::DrawPolygon(std::vector<Vector2D> vertices)

@@ -25,7 +25,7 @@ public:
 	static int Width();
 	static int Height();
 
-	static void DrawCircle(int x, int y, int radius, float angle, Uint32 color);
+	static void DrawCircle(int x, int y, int radius);
 	static void DrawPolygon(std::vector<Vector2D> vertices); // SDL_Color color
 	static void DrawBox(Body* body, int x, int y);
 };

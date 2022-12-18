@@ -24,14 +24,18 @@ void Application::Setup() {
 	polygon->shape->worldVertices.push_back(v2);
 	polygon->shape->worldVertices.push_back(v3);
 
-	world->AddBody(polygon); //why box is rendering but polygon not?
-
-
-
+	world->AddBody(polygon);
 
 	BoxShape boxShape = BoxShape(100, 100);
 	Body* box = new Body(boxShape, 0.0f, 0.0f, 0.0f);
 	world->AddBody(box);
+
+	
+	CircleShape circleShape = CircleShape(90);
+	Body* circle = new Body(circleShape, 0, 0, 0);
+	world->AddBody(circle);
+
+
 }
 
 void Application::Input() {
@@ -80,7 +84,10 @@ void Application::Render() {
 			Graphics::DrawPolygon(body->shape->worldVertices);
 		}
 		if (body->shape->GetType() == CIRCLE) {
-			//DrawCircle
+
+			CircleShape* circleSh = (CircleShape*)body->shape;
+
+			Graphics::DrawCircle(400, 200, circleSh->radius);
 		}
 	}
 	Graphics::RenderFrame();
