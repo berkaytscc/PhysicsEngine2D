@@ -1,7 +1,3 @@
-# Physics2D
- Simple 2D physics engine using C++ / SDL
-<br />
-
 <!-- ABOUT THE PROJECT -->
 ## Physics Engine 2D
 
